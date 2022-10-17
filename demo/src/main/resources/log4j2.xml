@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="debug">
     <Properties>
-        <Property name="LOG_PATTERN_DEMO">[%d{yyyy-MM-dd HH:mm:ss.SSS}] [${hostName}] [%p][%tid] [%M] [%C] (%L) %n</Property>
+        <Property name="LOG_PATTERN_DEMO">[%d{yyyy-MM-dd HH:mm:ss.SSS}] [${hostName}] [%p][%tid] [%M] [%C] (%L) %m %n</Property>
         <Property name="LOG_PATH_DEMO">/demo_logs/logs</Property>
     </Properties>
 
     <Appenders>
         <Console name="demo_console" target="SYSTEM_OUT">
-            <PatternLayout pattern="${LOG_PATTERN_DEMO}"/>
+            <PatternLayout pattern="${LOG_PATTERN_DEMO}" charset="UTF-8" />
         </Console>
 
         <RollingFile name="demo_error"
                      fileName="${LOG_PATH_DEMO}/today/error.log"
                      filePattern="${LOG_PATH_DEMO}/%d{yyyyMMdd}/error.log">
-            <PatternLayout pattern="${LOG_PATTERN_DEMO}"/>
+            <PatternLayout pattern="${LOG_PATTERN_DEMO}" charset="UTF-8" />
             <Policies>
                 <SizeBasedTriggeringPolicy size="19500KB" />
             </Policies>
@@ -23,7 +23,7 @@
         <RollingFile name="demo_warn"
                      fileName="${LOG_PATH_DEMO}/today/warn.log"
                      filePattern="${LOG_PATH_DEMO}/%d{yyyyMMdd}/warn.log">
-            <PatternLayout pattern="${LOG_PATTERN_DEMO}"/>
+            <PatternLayout pattern="${LOG_PATTERN_DEMO}" charset="UTF-8" />
             <Policies>
                 <SizeBasedTriggeringPolicy size="19500KB" />
             </Policies>
@@ -33,7 +33,7 @@
         <RollingFile name="demo_info"
                      fileName="${LOG_PATH_DEMO}/today/info.log"
                      filePattern="${LOG_PATH_DEMO}/%d{yyyyMMdd}/info.log">
-            <PatternLayout pattern="${LOG_PATTERN_DEMO}"/>
+            <PatternLayout pattern="${LOG_PATTERN_DEMO}" charset="UTF-8" />
             <Policies>
                 <SizeBasedTriggeringPolicy size="19500KB" />
             </Policies>
@@ -43,7 +43,7 @@
         <RollingFile name="demo_debug"
                      fileName="${LOG_PATH_DEMO}/today/debug.log"
                      filePattern="${LOG_PATH_DEMO}/%d{yyyyMMdd}/debug.log">
-            <PatternLayout pattern="${LOG_PATTERN_DEMO}"/>
+            <PatternLayout pattern="${LOG_PATTERN_DEMO}" charset="UTF-8" />
             <Policies>
                 <SizeBasedTriggeringPolicy size="19500KB" />
             </Policies>

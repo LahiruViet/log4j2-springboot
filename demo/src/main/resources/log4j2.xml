@@ -12,42 +12,46 @@
 
         <RollingFile name="demo_error"
                      fileName="${LOG_PATH_DEMO}/today/error.log"
-                     filePattern="${LOG_PATH_DEMO}/%d{yyyyMMdd}/error.log">
+                     filePattern="${LOG_PATH_DEMO}/%d{yyyyMMdd}_%i/error.log">
             <PatternLayout pattern="${LOG_PATTERN_DEMO}" charset="UTF-8" />
             <Policies>
+                <TimeBasedTriggeringPolicy />
                 <SizeBasedTriggeringPolicy size="19500KB" />
             </Policies>
-            <DefaultRolloverStrategy max="1" />
+            <DefaultRolloverStrategy max="7" />
         </RollingFile>
 
         <RollingFile name="demo_warn"
                      fileName="${LOG_PATH_DEMO}/today/warn.log"
-                     filePattern="${LOG_PATH_DEMO}/%d{yyyyMMdd}/warn.log">
+                     filePattern="${LOG_PATH_DEMO}/%d{yyyyMMdd}_%i/warn.log">
             <PatternLayout pattern="${LOG_PATTERN_DEMO}" charset="UTF-8" />
             <Policies>
+                <TimeBasedTriggeringPolicy />
                 <SizeBasedTriggeringPolicy size="19500KB" />
             </Policies>
-            <DefaultRolloverStrategy max="1" />
+            <DefaultRolloverStrategy max="7" />
         </RollingFile>
 
         <RollingFile name="demo_info"
                      fileName="${LOG_PATH_DEMO}/today/info.log"
-                     filePattern="${LOG_PATH_DEMO}/%d{yyyyMMdd}/info.log">
+                     filePattern="${LOG_PATH_DEMO}/%d{yyyyMMdd}_%i/info.log">
             <PatternLayout pattern="${LOG_PATTERN_DEMO}" charset="UTF-8" />
             <Policies>
+                <TimeBasedTriggeringPolicy />
                 <SizeBasedTriggeringPolicy size="19500KB" />
             </Policies>
-            <DefaultRolloverStrategy max="1" />
+            <DefaultRolloverStrategy max="7" />
         </RollingFile>
 
         <RollingFile name="demo_debug"
                      fileName="${LOG_PATH_DEMO}/today/debug.log"
-                     filePattern="${LOG_PATH_DEMO}/%d{yyyyMMdd}/debug.log">
+                     filePattern="${LOG_PATH_DEMO}/%d{yyyyMMdd}_%i/debug.log">
             <PatternLayout pattern="${LOG_PATTERN_DEMO}" charset="UTF-8" />
             <Policies>
+                <TimeBasedTriggeringPolicy />
                 <SizeBasedTriggeringPolicy size="19500KB" />
             </Policies>
-            <DefaultRolloverStrategy max="1" />
+            <DefaultRolloverStrategy max="7" />
         </RollingFile>
     </Appenders>
 
@@ -56,19 +60,13 @@
             <AppenderRef ref="demo_console"/>
         </Root>
 
-        <Logger name="com.example.demo" additivity="false" level="DEBUG">
+        <Logger name="com.example.demo" additivity="false" level="debug">
             <AppenderRef ref="demo_console"/>
             <AppenderRef ref="demo_debug"/>
             <AppenderRef ref="demo_info"/>
             <AppenderRef ref="demo_warn"/>
             <AppenderRef ref="demo_error"/>
         </Logger>
-
-        <Logger name="com.example.demo" additivity="false" level="info">
-            <AppenderRef ref="demo_console"/>
-            <AppenderRef ref="demo_info"/>
-            <AppenderRef ref="demo_warn"/>
-            <AppenderRef ref="demo_error"/>
-        </Logger>
+        
     </Loggers>
 </Configuration>
